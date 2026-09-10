@@ -229,6 +229,21 @@ Get value from a `Set-Cookie` header. The `key` is the name of the cookie.
   variable: SESSION
 ```
 
+## Expose
+
+`expose` can be used to add variables to all subsequent requests. A use case for this could be a session specific identifier or a CSRF token as show in the example below:
+
+```yaml
+- key: .token
+  strat: json
+  variable: CSRF_GLOBAL
+  expose:
+    name: XSRF-TOKEN
+    location: header
+```
+
+The value can be placed in different `location` positions: `cookie`, `header`, `bearer`.
+
 # Filters
 
 In `session-chains`, filters are transformation functions applied to variables before they are inserted into an HTTP request.
