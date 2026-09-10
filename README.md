@@ -251,6 +251,12 @@ The following built-in filters are available:
 | `urlenc` | URL‑encodes the value. |
 | `urldec` | URL‑decodes the value. |
 | `tojson` | Generates the JSON representation using `json.dumps()`. |
+| `b64enc` | Base64‑encodes the value. |
+| `b64dec` | Decodes a Base64‑encoded value. |
+| `hexenc` | Encodes the value as hexadecimal string. |
+| `hexdec` | Decodes a hexadecimal string encoded value. |
+| `upper` | Converts the value to uppercase. |
+| `lower` | Converts the value to lowercase. |
 
 ## Custom Filters
 

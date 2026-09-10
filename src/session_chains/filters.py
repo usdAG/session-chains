@@ -1,6 +1,7 @@
 import pyotp
 import urllib.parse
 import json
+import base64
 
 
 def totp(value):
@@ -9,15 +10,36 @@ def totp(value):
 
 
 def urlenc(value):
-    new_val = urllib.parse.quote_plus(value)
-    return new_val
+    return urllib.parse.quote_plus(value)
 
 
 def urldec(value):
-    new_val = urllib.parse.unquote(value)
-    return new_val
+    return urllib.parse.unquote(value)
 
 
 def tojson(value):
-    new_val = json.dumps(value)
-    return new_val
+    return json.dumps(value)
+
+
+def b64enc(value):
+    return base64.b64encode(value.encode()).decode()
+
+
+def b64dec(value):
+    return base64.b64decode(value).decode()
+
+
+def hexenc(value):
+    return value.encode().hex()
+
+
+def hexdec(value):
+    return bytes.fromhex(value).decode()
+
+
+def upper(value):
+    return value.upper()
+
+
+def lower(value):
+    return value.lower()
