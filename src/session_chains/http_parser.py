@@ -119,7 +119,7 @@ def parse_response(response, request) -> dict[str, str]:
                 match = re.search(key, response.text)
             if not match:
                 rerror(f"Regex broken? Could not find match for regex: {key}")
-            value = match.group(0)
+            value = match.group(1)
             values[name] = value
         elif strat == "json":
             value = jq.compile(key).input_text(response.text).first()
