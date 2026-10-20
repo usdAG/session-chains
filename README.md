@@ -116,6 +116,7 @@ The `config.yaml` defines how `session-chains` will execute and maintain session
 | `repeat_after` | ( :white_check_mark: ) | Seconds between session refreshes. The default value value is `0`, which means run once and exit. This is fine during the setup phase, however needs to be adjusted to the applications session timeout.|
 | `proxy` | :x: | Upstream HTTP proxy, e.g., `http://localhost:8080` for Burp interception during setup. |
 | `requests` | :white_check_mark: | Ordered list of request steps, request files, and extraction rules. |
+| `verify` | :x: | Whether to verify TLS certificates. When no proxy is configured, this defaults to `"true"`, which can cause session-chains to fail e.g., when the certificate is self-signed. This key provides an option to remediate this by disabling certificate verification. |
 
 
 Each request entry references a saved request file and optionally specifies extraction rules to capture values (cookies, tokens, etc.) for reuse in later steps. The order of requests matters: they are sent and processed from top to bottom and extracted variables from one request can be used in later requests.

@@ -29,7 +29,7 @@ async def chain(user_config, config):
     proto = config["proto"] if "proto" in config else "https"
     seconds = config["repeat_after"] if "repeat_after" in config else 0
     proxy = config["proxy"] if "proxy" in config else None
-    verify = not bool(proxy)
+    verify = config["verify"] if "verify" in config else not bool(proxy)
     done = False
     if not seconds:
         rprint("Executing chain once...")
